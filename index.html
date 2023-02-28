@@ -8,6 +8,7 @@
 
 <body>
     <script>
+        let options = ["ROCK","PAPER","SCISSORS"]
         function getPlayerChoice() {
             let playerChoice = prompt("Enter your choice (Rock/Paper/Scissors)").toLowerCase();
             while (!(playerChoice === "paper" || playerChoice === "scissors" || playerChoice === "rock")) {
@@ -17,18 +18,7 @@
         }
         function getComputerChoice() {
             let randomNumber = Math.floor(Math.random() * 2);
-            let computerChoice;
-            switch (randomNumber) {
-                case 0:
-                    computerChoice = "Paper";
-                    break;
-                case 1:
-                    computerChoice = "Scissors";
-                    break;
-                case 2:
-                    computerChoice = "Rock";
-                    break;
-            }
+            let computerChoice = options[randomNumber];
             return computerChoice;
         }
 
@@ -38,18 +28,18 @@
             computerChoice = computerChoice.toLowerCase();
             message = `User choice: ${playerChoice}, Computer choice: ${computerChoice} \n`;
             switch (true) {
-                case (playerChoice === "scissors" && computerChoice === "paper"):
-                case (playerChoice === "rock" && computerChoice === "scissors"):
-                case (playerChoice === "paper" && computerChoice === "rock"):
+                case (playerChoice === "SCISSORS" && computerChoice === "PAPER"):
+                case (playerChoice === "ROCK" && computerChoice === "SCISSORS"):
+                case (playerChoice === "PAPER" && computerChoice === "ROCK"):
                     message += "You win!! " + playerChoice.toUpperCase() + " beats " + computerChoice.toUpperCase();
                     break;
-                case (playerChoice === "paper" && computerChoice === "scissors"):
-                case (playerChoice === "scissors" && computerChoice === "rock"):
-                case (playerChoice === "rock" && computerChoice === "paper"):
-                    message += "You Lose!! " + computerChoice.toUpperCase() + " beats " + playerChoice.toUpperCase();
+                case (playerChoice === "PAPER" && computerChoice === "SCISSORS"):
+                case (playerChoice === "SCISSORS" && computerChoice === "ROCK"):
+                case (playerChoice === "ROCK" && computerChoice === "PAPER"):
+                    message += "You Lose!! " + computerChoice + " beats " + playerChoice;
                     break;
                 case (playerChoice === computerChoice):
-                    message += "Its a Tie!! " + computerChoice.toUpperCase() + " beats " + playerChoice.toUpperCase();
+                    message += "Its a Tie!!";
                     break;
             }
             return message;
