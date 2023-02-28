@@ -8,17 +8,16 @@
 
 <body>
     <script>
-        let playerChoice;
-        let computerChoice;
         function getPlayerChoice() {
-            playerChoice = prompt("Enter your choice (Rock/Paper/Scissors)").toLowerCase();
-            while (!(playerChoice === "paper" || playerChoice === "scissors" || playerChoice === "rock")){
+            let playerChoice = prompt("Enter your choice (Rock/Paper/Scissors)").toLowerCase();
+            while (!(playerChoice === "paper" || playerChoice === "scissors" || playerChoice === "rock")) {
                 playerChoice = prompt("Entered value is invalid.. Please enter a valid choice (Rock/Paper/Scissors)")
             }
             return playerChoice;
         }
         function getComputerChoice() {
             let randomNumber = Math.floor(Math.random() * 2);
+            let computerChoice;
             switch (randomNumber) {
                 case 0:
                     computerChoice = "Paper";
@@ -52,9 +51,17 @@
             }
             return message;
         }
-        let result = playRound(getPlayerChoice(), getComputerChoice());
-        console.log(result);
-        alert(result)
+
+        function game() {
+            for (let i = 1; i <= 5; i++) {
+                let playerChoice = getPlayerChoice();
+                let computerChoice = getComputerChoice();
+                let result = playRound(playerChoice, computerChoice);
+                console.log(result);
+                alert(result)
+            }
+        }
+        console.log(game());
     </script>
 </body>
 
