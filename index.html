@@ -48,6 +48,9 @@
                 case (playerChoice === "rock" && computerChoice === "paper"):
                     message += "You Lose!! " + computerChoice.toUpperCase() + " beats " + playerChoice.toUpperCase();
                     break;
+                case (playerChoice === computerChoice):
+                    message += "Its a Tie!! " + computerChoice.toUpperCase() + " beats " + playerChoice.toUpperCase();
+                    break;
             }
             return message;
         }
@@ -60,6 +63,7 @@
                 console.log(result);
                 alert(result)
             }
+            return;
         }
         console.log(game());
     </script>
