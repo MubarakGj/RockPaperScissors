@@ -11,19 +11,50 @@
         let playerChoice;
         let computerChoice;
         function getPlayerChoice() {
-            return prompt("Enter your choice (Rock/Paper/Scissors)");
+            playerChoice = prompt("Enter your choice (Rock/Paper/Scissors)").toLowerCase();
+            while (!(playerChoice === "paper" || playerChoice === "scissors" || playerChoice === "rock")){
+                playerChoice = prompt("Entered value is invalid.. Please enter a valid choice (Rock/Paper/Scissors)")
+            }
+            return playerChoice;
         }
         function getComputerChoice() {
-            let randomnumber = Math.floor(Math.random() * 3);
+            let randomNumber = Math.floor(Math.random() * 2);
             switch (randomNumber) {
+                case 0:
+                    computerChoice = "Paper";
+                    break;
                 case 1:
-                    return "Paper";
+                    computerChoice = "Scissors";
+                    break;
                 case 2:
-                    return "Scissors";
-                case 3:
-                    return "Rock";
+                    computerChoice = "Rock";
+                    break;
             }
+            return computerChoice;
         }
+
+        function playRound(playerChoice, computerChoice) {
+            let message;
+            playerChoice = playerChoice.toLowerCase();
+            computerChoice = computerChoice.toLowerCase();
+            message = `User choice: ${playerChoice}, Computer choice: ${computerChoice} \n`;
+            switch (true) {
+                case (playerChoice === "scissors" && computerChoice === "paper"):
+                case (playerChoice === "rock" && computerChoice === "scissors"):
+                case (playerChoice === "paper" && computerChoice === "rock"):
+                    message += "You win!!" + playerChoice + "beats" + computerChoice;
+                    break;
+                case (playerChoice === "paper" && computerChoice === "scissors"):
+                case (playerChoice === "scissors" && computerChoice === "rock"):
+                case (playerChoice === "rock" && computerChoice === "paper"):
+                    message += "You Lose!! " + computerChoice.toUpperCase() + " beats " + playerChoice.toUpperCase();
+                    break;
+            }
+            return message;
+        }
+        let result = playRound(getPlayerChoice(), getComputerChoice());
+        console.log(result);
+        alert(result)
     </script>
 </body>
 
