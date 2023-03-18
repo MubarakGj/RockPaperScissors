@@ -39,13 +39,9 @@ function playRound(playerChoice, computerChoice) {
 }
 
 function game() {
-    for (let i = 1; i <= 5; i++) {
         let playerChoice = getPlayerChoice();
         let computerChoice = getComputerChoice();
         let result = playRound(playerChoice, computerChoice);
-        console.log(result);
-        alert(result)
-    }
-    return;
+        alert(result);
 }
 console.log(game());
