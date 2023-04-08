@@ -11,18 +11,29 @@
 <body>
     <h1>Rock Paper Scissors</h1>
     <p>Play Rock,Paper,Scossors against computer. Select an option below</p>
+
     <div id="container">
-        <div>
-            <button id="rock" data-value="rock"></button>
-            <p><strong>Rock</strong></p>
+        <div id="playerScoreContainer">
+            <div><strong>Player Score</strong></div>
+            <div><Strong id="playerScore">0</Strong></div>
         </div>
-        <div>
-            <button id="paper" data-value="paper"></button>
-            <p><strong>Paper</strong></p>
+        <div id="optionContainer">
+            <div>
+                <button id="rock" data-value="rock"></button>
+                <p><strong>Rock</strong></p>
+            </div>
+            <div>
+                <button id="paper" data-value="paper"></button>
+                <p><strong>Paper</strong></p>
+            </div>
+            <div>
+                <button id="scissors" data-value="scissors"></button>
+                <p><strong>Scissors</strong></p>
+            </div>
         </div>
-        <div>
-            <button id="scissors" data-value="scissors"></button>
-            <p><strong>Scissors</strong></p>
+        <div id="computerScoreContainer">
+            <div><Strong>Computer Score</Strong></div>
+            <div><Strong id="computerScore">0</Strong></div>
         </div>
     </div>
     <div id="result"></div>
