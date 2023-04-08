@@ -1,10 +1,6 @@
 let options = ["ROCK", "PAPER", "SCISSORS"];
-function getPlayerChoice() {
-    let playerChoice = prompt("Enter your choice (Rock/Paper/Scissors)").toUpperCase();
-    while (!(playerChoice === "paper" || playerChoice === "scissors" || playerChoice === "rock")) {
-        playerChoice = prompt("Entered value is invalid. Please enter a valid choice (Rock/Paper/Scissors)")
-    }
-    return playerChoice;
+function getPlayerChoice(e) {
+    return e.target.dataset.value;
 }
 function getComputerChoice() {
     let randomNumber;
@@ -19,29 +15,40 @@ function playRound(playerChoice, computerChoice) {
     let message;
     playerChoice = playerChoice.toUpperCase();
     computerChoice = computerChoice.toUpperCase();
-    message = `User's choice: ${playerChoice}, Computer's choice: ${computerChoice} \n`;
     switch (true) {
         case (playerChoice === "SCISSORS" && computerChoice === "PAPER"):
         case (playerChoice === "ROCK" && computerChoice === "SCISSORS"):
         case (playerChoice === "PAPER" && computerChoice === "ROCK"):
-            message += `You Win!! ${playerChoice} beats ${computerChoice}`;
+            message = `You Win!! ${playerChoice} beats ${computerChoice}`;
             break;
         case (playerChoice === "PAPER" && computerChoice === "SCISSORS"):
         case (playerChoice === "SCISSORS" && computerChoice === "ROCK"):
         case (playerChoice === "ROCK" && computerChoice === "PAPER"):
-            message += `You Lose!! ${computerChoice} beats ${playerChoice}`;
+            message = `You Lose!! ${computerChoice} beats ${playerChoice}`;
             break;
         case (playerChoice === computerChoice):
-            message += "Its a Tie!! Try again";
+            message = "Its a Tie!! Try again";
             break;
     }
+    message += `<br> User's choice: ${playerChoice}, Computer's choice: ${computerChoice}`;
     return message;
 }
 
-function game() {
-        let playerChoice = getPlayerChoice();
+function game(e) {
+        let playerChoice = getPlayerChoice(e);
         let computerChoice = getComputerChoice();
-        let result = playRound(playerChoice, computerChoice);
-        alert(result);
+        let result = document.querySelector("#result");
+        result.innerHTML = playRound(playerChoice, computerChoice);
 }
-console.log(game());
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button => {
+    button.addEventListener('mouseover',()=>{
+        button.classList.add("onhover");
+    });
+    button.addEventListener('mouseout',()=>{
+        button.classList.remove("onhover");
+    });
+    button.addEventListener('click', game);
+    
+})

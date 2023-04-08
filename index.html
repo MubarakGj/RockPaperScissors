@@ -4,15 +4,28 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>RockPaperScissors</title>
-    <script src = "/Script.js" defer></script>
+    <script src="/Script.js" defer></script>
+    <link href="/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <ul>
-        <li data-value ="rock">Rock</li>
-        <li data-value ="paper">Paper</li>
-        <li data-value ="scissors">Scissors</li>
-    </ul>
+    <h1>Rock Paper Scissors</h1>
+    <p>Play Rock,Paper,Scossors against computer. Select an option below</p>
+    <div id="container">
+        <div>
+            <button id="rock" data-value="rock"></button>
+            <p><strong>Rock</strong></p>
+        </div>
+        <div>
+            <button id="paper" data-value="paper"></button>
+            <p><strong>Paper</strong></p>
+        </div>
+        <div>
+            <button id="scissors" data-value="scissors"></button>
+            <p><strong>Scissors</strong></p>
+        </div>
+    </div>
+    <div id="result"></div>
 </body>
 
 </html>
