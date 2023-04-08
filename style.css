@@ -1,0 +1,56 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    font-family: Roboto,system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #1F2937;
+}
+
+#container{
+    display:flex;
+    justify-content: center; 
+    align-items: center;
+    flex:1;
+    margin-top: 4%;
+}
+
+button{
+    height: 200px;  
+    width: 200px;
+    margin-inline: 20px;
+    border-radius: 50%;
+    border:none;
+    overflow:hidden;
+    background-size: 255px;
+    background-position: center;
+}
+
+#result{
+    flex:auto;
+    font-size: 20px;
+    font-weight: normal;
+    align-content: center;
+    justify-content: center;
+    margin: 30px;
+}
+
+#rock{
+    background-image: url(Images/hand_Rock.jpeg);   
+}
+
+#paper{
+    background-image: url(Images/hand_Paper.jpeg);   
+}
+
+#scissors{
+    background-image: url(Images/hand_Scissors.jpeg);   
+}
+
+p{
+    text-align: center;
+}
+button.onhover{
+    border: 5px solid #e85a4f;
+}
