@@ -1,2 +1,2 @@
 # RockPaperScissors
-This game is similar to the real life rock paper scissors. User has to enter a value from the list Rock/Paper/Scissors and play against the system. 
+This website provides a simple way to play Rock,Paper,Scissors virtually aginst the computer. User needs to select the one of the options from the UI to start the game.
