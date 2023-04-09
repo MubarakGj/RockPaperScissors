@@ -39,34 +39,50 @@ function playRound(playerChoice, computerChoice) {
 }
 
 function game(e) {
-        let playerChoice = getPlayerChoice(e);
-        let computerChoice = getComputerChoice();
-        let result = document.querySelector("#result");
-        let message = playRound(playerChoice, computerChoice);
-        playerScore.textContent = playerWinCount;
-        computerScore.textContent = computerWinCount;
-        result.innerHTML =  message;
+    let playerChoice = getPlayerChoice(e);
+    let computerChoice = getComputerChoice();
+    let result = document.querySelector("#result");
+    let message = playRound(playerChoice, computerChoice);
+    playerScore.textContent = playerWinCount;
+    computerScore.textContent = computerWinCount;
+    result.innerHTML = message;
 
-        if(playerWinCount === 5 || computerWinCount === 5){
-            let msg = "First one to win 5 consecutive games is: "
-            result.innerHTML = (playerWinCount === 5) ? msg.concat("Player") : msg.concat("Computer");
-            playerWinCount = 0;
-            computerWinCount = 0;
+    if (playerWinCount === 5 || computerWinCount === 5) {
+        let msg = "First one to win 5 consecutive games is: "
+        result.innerHTML = (playerWinCount === 5) ? msg.concat("Player") : msg.concat("Computer");
+        playerWinCount = 0;
+        computerWinCount = 0;
 
-        }
+    }
 }
 
 let playerScore = document.querySelector("#playerScore");
 let computerScore = document.querySelector("#computerScore");
-
 const buttons = document.querySelectorAll("button");
+
 buttons.forEach(button => {
-    button.addEventListener('mouseover',()=>{
+    button.addEventListener('mouseover', () => {
         button.classList.add("onhover");
     });
-    button.addEventListener('mouseout',()=>{
+    button.addEventListener('mouseout', () => {
         button.classList.remove("onhover");
     });
-    button.addEventListener('click', game);
-    
+    button.addEventListener('click', (e) => {
+        let isReset = false;
+        isReset = resetStyle();
+        button.classList.add("clicked");
+        game(e);
+        if (!isReset) {
+            setTimeout(resetStyle, 3000);
+        }
+    });
+
+    function resetStyle() {
+        buttons.forEach(button => {
+            if (button.classList.contains("clicked")) {
+                button.classList.toggle("clicked");
+            }
+        });
+        return true;
+    }
 })

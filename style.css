@@ -8,7 +8,7 @@ body {
     color: #1F2937;
 }
 
-h1{
+h1 {
     text-align: center;
 }
 
@@ -24,6 +24,7 @@ div#playerScoreContainer {
     flex: 1;
     font-size: 30px;
     max-width: 20%;
+    min-width: 20%;
 }
 
 div#computerScoreContainer {
@@ -31,6 +32,7 @@ div#computerScoreContainer {
     flex: 1;
     font-size: 30px;
     max-width: 20%;
+    min-width: 20%;
 }
 
 #optionContainer {
@@ -40,17 +42,22 @@ div#computerScoreContainer {
     flex: 1;
     margin-top: 4%;
     margin-bottom: 3%;
+    flex-wrap: wrap;
 }
 
 button {
     height: 200px;
     width: 200px;
-    margin-inline: 20px;
     border-radius: 50%;
     border: none;
     overflow: hidden;
     background-size: 255px;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    align-content: center;
 }
 
 #result {
@@ -81,4 +88,15 @@ p {
 
 button.onhover {
     border: 5px solid #e85a4f;
+}
+
+button.clicked {
+    transform: rotateY(360deg);
+    transition-duration : 1s;
+    border: 5px solid #e85a4f;
+}
+
+#optionContainer>div {
+    display: inline-block;
+    margin-inline: 30px;
 }
