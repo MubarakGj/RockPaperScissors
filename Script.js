@@ -1,6 +1,7 @@
 let options = ["ROCK", "PAPER", "SCISSORS"];
 let playerWinCount = 0;
 let computerWinCount = 0;
+let myTimeout = null;
 function getPlayerChoice(e) {
     return e.target.dataset.value;
 }
@@ -68,13 +69,13 @@ buttons.forEach(button => {
         button.classList.remove("onhover");
     });
     button.addEventListener('click', (e) => {
-        let isReset = false;
-        isReset = resetStyle();
+        if(myTimeout !== null){
+            clearTimeout(myTimeout);
+            resetStyle();
+        }
+        myTimeout = setTimeout(resetStyle, 3000);
         button.classList.add("clicked");
         game(e);
-        if (!isReset) {
-            setTimeout(resetStyle, 3000);
-        }
     });
 
     function resetStyle() {
